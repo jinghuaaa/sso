@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+    <!-- 注意
+       (1)“local-override”属性要设置为true，否则db.properties配置文件的“username”会被覆盖
+       (2)操作系统存在的环境变量“user.name”，如果local-override=false, 那么db.properties的username属性值就会被 操作系统“user.name”的值覆盖
+    -->
+    <context:property-placeholder location="classpath*:app.properties" local-override="true"/>
+
+</beans>

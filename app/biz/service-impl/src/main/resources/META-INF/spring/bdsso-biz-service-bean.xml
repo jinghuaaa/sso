@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+
+    <context:component-scan base-package="com.bbd.bdsso.biz.service.impl"/>
+
+    <!-- 事务模板 -->
+    <bean id="bdssoTemplate" class="com.bbd.bdsso.biz.service.impl.template.BdssoTemplate"/>
+
+    <!-- AOP事务模板 -->
+    <bean id="bdssoAopTemplate" class="com.bbd.bdsso.biz.service.impl.template.BdssoAopTemplate"/>
+
+    <!-- SSO用户管理服务实现 -->
+    <bean id="ssoUserFacade" class="com.bbd.bdsso.biz.service.impl.SsoUserFacadeImpl"/>
+
+    <!-- SSO用户token服务实现 -->
+    <bean id="ssoAccessFacade" class="com.bbd.bdsso.biz.service.impl.SsoAccessFacadeImpl"/>
+
+    <!-- SSO用户验证服务实现 -->
+    <bean id="ssoAccountValidFacade" class="com.bbd.bdsso.biz.service.impl.SsoAccountValidFacadeImpl"/>
+
+    <!-- SSO应用管理服务实现 -->
+    <bean id="ssoAppFacade" class="com.bbd.bdsso.biz.service.impl.SsoAppFacadeImpl"/>
+
+    <!-- SSO权限服务实现 -->
+    <bean id="ssoAuthFacade" class="com.bbd.bdsso.biz.service.impl.SsoAuthFacadeImpl"/>
+
+    <!-- SSO角色服务实现 -->
+    <bean id="ssoRoleFacade" class="com.bbd.bdsso.biz.service.impl.SsoRoleFacadeImpl"/>
+
+    <!-- SSO角色权限服务实现 -->
+    <bean id="ssoRoleAuthFacade" class="com.bbd.bdsso.biz.service.impl.SsoRoleAuthFacadeImpl"/>
+
+    <!-- SSO用户角色服务实现 -->
+    <bean id="ssoUserRoleFacade" class="com.bbd.bdsso.biz.service.impl.SsoUserRoleFacadeImpl"/>
+
+    <!-- SSO访问记录服务实现 -->
+    <bean id="ssoVisitHistoryFacade" class="com.bbd.bdsso.biz.service.impl.SsoVisitHistoryFacadeImpl"/>
+
+    <!-- SSO资源管理服务实现 -->
+    <bean id="ssoResourceFacade" class="com.bbd.bdsso.biz.service.impl.SsoResourceFacadeImpl"/>
+
+    <!-- SSO权限资源管理服务实现 -->
+    <bean id="ssoAuthResourceFacade" class="com.bbd.bdsso.biz.service.impl.SsoAuthResourceFacadeImpl"/>
+</beans>
+

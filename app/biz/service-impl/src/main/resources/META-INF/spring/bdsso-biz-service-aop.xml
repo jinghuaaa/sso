@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName">
+
+    <!-- SSO用户权限验证 -->
+    <aop:config>
+        <aop:aspect id="aspect" ref="ssoAuthAdvice">
+            <aop:pointcut id="pointSsoUser" expression="execution(* com.bbd.bdsso.biz.service.impl.*.*(..))"/>
+            <aop:around method="doAround" pointcut-ref="pointSsoUser"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!-- SSO权限验证 -->
+    <bean id="ssoAuthAdvice" class="com.bbd.bdsso.biz.service.impl.aop.SsoAuthAdvice"/>
+</beans>
+
